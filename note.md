@@ -5,3 +5,9 @@
     ['Andrew', ...names].forEach((name)=> console.log(`Hi ${name}`));
 
 - npm install node-uuid --save-dev: Libary is for generate new ID 
+
+- Save local store.
+    localStorage.getItem('nextId');
+    localStorage.removeItem('searchText');
+
+    
