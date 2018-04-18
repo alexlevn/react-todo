@@ -24,3 +24,5 @@ var final = [
 // final.forEach((name) => console.log(`Hi ${name}`));
 
 ['Andrew', ...names].forEach((name)=> console.log(`Hi ${name}`));
+
+console.log("abc def xyz".indexOf('dez'));

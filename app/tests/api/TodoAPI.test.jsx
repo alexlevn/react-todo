@@ -90,6 +90,11 @@ describe('TodoAPI', () => {
             expect(filteredTodos.length).toBe(1);
         }); 
 
+        it('should sort by completed status', ()=>{
+            var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+            expect(filteredTodos[0].completed).toBe(false);
+            // The todo with completed = false will go to first in this case.
+        });
 
     });
 })
