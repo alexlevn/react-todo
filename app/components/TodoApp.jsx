@@ -1,6 +1,9 @@
-var React = require('react');
-var uuid = require('node-uuid');
-var moment = require('moment');
+import React from 'react';
+import uuid from 'node-uuid';
+import moment from 'moment';
+
+// var React = require('react'); var uuid = require('node-uuid'); var moment =
+// require('moment');
 
 var TodoList = require('TodoList');
 var AddTodo = require('AddTodo');
@@ -13,13 +16,8 @@ var TodoApp = React.createClass({
             showCompleted: false,
             searchText: "",
             todos: TodoAPI.getTodos()
-            // [
-            //     {
-            //         id: uuid(),
-            //         text: 'Walk the dog',
-            //         completed: false
-            //     }
-            // ]
+            // [     {         id: uuid(),         text: 'Walk the dog',         completed:
+            // false ...     } ]
         };
     },
 
@@ -35,7 +33,7 @@ var TodoApp = React.createClass({
                     text: text,
                     completed: false,
                     createdAt: moment().unix(),
-                    completedAt: undefined          
+                    completedAt: undefined
                 }
             ]
         })
@@ -48,7 +46,9 @@ var TodoApp = React.createClass({
             .map(function (todo) {
                 if (todo.id === id) {
                     todo.completed = !todo.completed;
-                    todo.completedAt = todo.completed ? moment().unix(): undefined;
+                    todo.completedAt = todo.completed
+                        ? moment().unix()
+                        : undefined;
                 }
                 return todo;
             })
@@ -71,9 +71,17 @@ var TodoApp = React.createClass({
 
         return (
             <div>
-                <TodoSearch onSearch={this.handleSearch}/>
-                <TodoList todos={filteredTodos} onToggle ={this.handleToggle}/>
-                <AddTodo onAddTodo={this.handleAddTodo}/>
+                <h1 className="page-title">Todo App</h1>
+                <div className="row">
+                    <div className="column small-centered small-11 medium-6 large-5">
+                        <div className="container">
+                            <TodoSearch onSearch={this.handleSearch}/>
+                            <TodoList todos={filteredTodos} onToggle ={this.handleToggle}/>
+                            <AddTodo onAddTodo={this.handleAddTodo}/>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         )
     }

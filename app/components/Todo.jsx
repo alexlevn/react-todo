@@ -6,26 +6,37 @@ var Todo = React.createClass({
 
         var {id, text, completed, createdAt, completedAt} = this.props;
 
-        var renderDate = ()=>{
+        var todoClassName = completed
+            ? 'todo todo-completed'
+            : 'todo';
+
+        var renderDate = () => {
             var message = 'Created ';
             var timestamp = createdAt;
 
-            if(completed){
+            if (completed) {
                 message = "Completed ";
-                timestamp = completedAt; 
+                timestamp = completedAt;
             }
 
-            return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a')
+            return message + moment
+                .unix(timestamp)
+                .format('MMM Do YYYY @ h:mm a')
         };
 
         return (
-            <div onClick={()=>{
-                this.props.onToggle(id); 
-                // Give the id & handle onToggle to the Father Component (container) for the processing.
+            <div
+                className={todoClassName}
+                onClick={() => {
+                this
+                    .props
+                    .onToggle(id);
             }}>
                 <input type="checkbox" checked={completed}/>
-                <p>{text}</p>
-                <p>{renderDate()}</p>
+                <div>
+                    <p>{text}</p>
+                    <p className="todo_subtext">{renderDate()}</p>
+                </div>
             </div>
         )
     }
