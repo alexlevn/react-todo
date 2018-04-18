@@ -75,7 +75,7 @@ describe('TodoAPI', () => {
                 completed: false
             }, {
                 id: 1,
-                text: 'Some text here',
+                text: 'the third: some text here',
                 completed: true
             }
         ];
@@ -96,5 +96,17 @@ describe('TodoAPI', () => {
             // The todo with completed = false will go to first in this case.
         });
 
+        
+        it('should filter todos by searchText', ()=>{
+            var filteredTodos = TodoAPI.filterTodos(todos, true, 'some');
+            expect(filteredTodos.length).toBe(2);
+        });
+
+        it('should filter todos bey searchText is empty', ()=>{
+            var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+            expect(filteredTodos.length).toBe(3);
+        });
+
+        
     });
 })

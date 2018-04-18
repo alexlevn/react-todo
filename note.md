@@ -24,3 +24,6 @@ Some notes reserved for a newbie
     return -1; mean a will before b  ( a < b)
     return 1; mean b will before a ( b < a)
     return 0; no change.
+
+- npm install moment
+    momentjs.com // 

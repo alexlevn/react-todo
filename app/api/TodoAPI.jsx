@@ -40,11 +40,13 @@ module.exports = {
                 // console.log(`todo.text = ${todo.text} and indexOf(${searchText}=${todo.text.indexOf(searchText)}`);
                 var lowerText = todo.text.toLowerCase();
 
-                if (lowerText.indexOf(searchText) >= 0) {
-                    return true; // Keep in the array
-                } else {
-                    return false; // Remove from the array
-                }
+                // if (lowerText.indexOf(searchText) >= 0) {
+                //     return true; // Keep in the array
+                // } else {
+                //     return false; // Remove from the array
+                // }
+
+                return(lowerText.indexOf(searchText) >= 0);
             });
         }
 
