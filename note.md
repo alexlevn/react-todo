@@ -27,3 +27,6 @@ Some notes reserved for a newbie
 
 - npm install moment
     momentjs.com // 
+
+- npm install deep-freeze-strict --save-dev
+    for test reducer..
